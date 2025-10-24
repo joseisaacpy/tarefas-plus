@@ -4,7 +4,7 @@ import { ClipboardCheck } from "lucide-react";
 
 export default function Home() {
   return (
-    <section className="h-screen flex flex-col items-center justify-center text-center gap-6">
+    <section className="h-[calc(100dvh-100px)] flex flex-col items-center justify-center text-center gap-6">
       {/* img */}
       <ClipboardCheck size={100} />
       {/* title */}
