@@ -1,6 +1,8 @@
-"use client";
-
 import { ClipboardCheck } from "lucide-react";
+
+export const metadata = {
+  title: "Início",
+};
 
 export default function Home() {
   return (
