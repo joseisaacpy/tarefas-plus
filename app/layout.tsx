@@ -22,6 +22,9 @@ export const metadata: Metadata = {
 // import Header
 import Header from "@/app/components/Header";
 
+// import Auth Provider
+import AuthProvider from "./provider/SessionProvider";
+
 // layout
 export default function RootLayout({
   children,
@@ -31,8 +34,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${poppins.className} antialiased`}>
-        <Header />
-        {children}
+        <AuthProvider>
+          <Header />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
