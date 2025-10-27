@@ -9,12 +9,19 @@ import Link from "next/link";
 // session e auth
 import { useSession, signIn, signOut } from "next-auth/react";
 
+import Loader from "./Loader";
+
 // hooks
 export default function Header() {
   const { data: session, status } = useSession();
+
+  if (status === "loading") {
+    return <Loader />;
+  }
+
   return (
     // header
-    <header className="flex flex-row items-center justify-around py-2">
+    <header className="max-w-5xl mx-auto flex flex-row items-center justify-around py-2">
       {/* nav */}
       <nav className="flex flex-row items-center gap-2">
         {/* Logo */}
@@ -38,9 +45,7 @@ export default function Header() {
       {/* Btn entrar / sair */}
 
       {/* se o status for loading, não mostrar nada, se tiver uma sessao, mostrar o botão de sair, se não, mostrar o botão de entrar */}
-      {status === "loading" ? (
-        <></>
-      ) : session?.expires ? (
+      {session?.expires ? (
         <button
           className="hover text-sm rounded-4xl border border-white px-2 md:px-4 py-1 font-bold"
           onClick={() => signOut()}
